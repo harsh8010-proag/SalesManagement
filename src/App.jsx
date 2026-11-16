@@ -6,6 +6,9 @@ import Features from './pages/Features';
 import DownloadApp from './componant/DownloadApp';
 import SalesTools from './componant/SalesTools';
 import Pricing from './pages/Pricing';
+import Footer from './componant/Footer';
+import GrowYourBusiness from './pages/GrowYourBusiness'
+import TryFieldOps from './pages/TryFieldOps'
 
 const App = () => {
   return (
@@ -17,6 +20,9 @@ const App = () => {
       <DownloadApp />
       <SalesTools />
       <Pricing />
+      <GrowYourBusiness />
+      <TryFieldOps />
+      <Footer />
     </div>
   );
 };

@@ -45,7 +45,7 @@ const Heropage = () => {
           {/* Avatar & Pin */}
           <div className="flex flex-col items-center flex-shrink-0">
             <img
-              src="/salesperson-avatar.png"
+              src="/salesperson-avatar.svg"
               alt="Salesperson"
               className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-sm"
             />
@@ -72,7 +72,7 @@ const Heropage = () => {
           {/* Avatar & Pin */}
           <div className="flex flex-col items-center flex-shrink-0">
             <img
-              src="/salesperson-avatar.png"
+              src="/salesperson-avatar.svg"
               alt="Salesperson"
               className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-sm"
             />
@@ -103,7 +103,7 @@ const Heropage = () => {
         {/* 3. Top-Right Corner Profile Pin */}
         <div className="absolute top-16 sm:top-20 right-4 sm:right-6 lg:right-10 z-20 flex flex-col items-center animate-float scale-75 sm:scale-90 lg:scale-100 pointer-events-none">
           <img
-            src="/salesperson-avatar.png"
+            src="/salesperson-avatar.svg"
             alt="Salesperson"
             className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-sm"
           />
