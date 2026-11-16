@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const navLinks = [
   { label: 'Product', href: '#product' },
-  { label: 'Product', href: '#product-2' },
+  { label: 'Download', href: '#product' },
   { label: 'Features', href: '#features' },
   { label: 'Pricing', href: '#pricing' },
 ];

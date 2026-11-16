@@ -29,25 +29,25 @@ const Product = () => {
       </div>
 
       {/* Centerpiece: Laptop Mockup with Playing Video & Floating Analytics Cards */}
-      <div className="relative z-10 w-full max-w-5xl px-4 sm:px-8 md:px-12">
+      <div className="relative z-10 w-full max-w-5xl px-3 sm:px-8 md:px-12">
         <div className="relative mx-auto max-w-[880px]">
           {/* 1. Floating Card: Top Left Notification ("amol more") */}
-          <div className="absolute -top-6 sm:-top-8 -left-2 sm:-left-8 md:-left-16 z-30 animate-float pointer-events-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-slate-100 text-left min-w-[160px] sm:min-w-[190px]">
+          <div className="absolute -top-4 sm:-top-7 md:-top-8 left-1 sm:-left-4 md:-left-12 lg:-left-16 z-30 animate-float pointer-events-auto origin-top-left scale-[0.72] xs:scale-[0.82] sm:scale-95 md:scale-100">
+            <div className="bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-[0_12px_30px_rgba(0,0,0,0.08)] border border-slate-100 text-left min-w-[140px] sm:min-w-[180px]">
               <div className="font-heading font-semibold text-xs sm:text-[13px] text-slate-800 leading-snug">
                 amol more
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-400 font-navitem mt-0.5">
+              <div className="text-[9.5px] sm:text-[11px] text-slate-400 font-navitem mt-0.5">
                 the three flavours
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 font-navitem mt-2">
+              <div className="text-[9.5px] sm:text-[11px] text-slate-500 font-navitem mt-1.5 sm:mt-2">
                 Added by <span className="font-medium text-slate-700">sohel shaikh</span>
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-400 font-navitem mt-0.5">
+              <div className="text-[9.5px] sm:text-[11px] text-slate-400 font-navitem mt-0.5">
                 9 Oct, 11:32 AM
               </div>
-              <div className="mt-2">
-                <span className="inline-block bg-blue-50 text-[#2563EB] text-[9.5px] sm:text-[10px] font-semibold px-2 py-0.5 rounded-md border border-blue-100">
+              <div className="mt-1.5 sm:mt-2">
+                <span className="inline-block bg-blue-50 text-[#2563EB] text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 rounded-md border border-blue-100">
                   New
                 </span>
               </div>
@@ -55,14 +55,14 @@ const Product = () => {
           </div>
 
           {/* 2. Floating Card: Bottom Left ("Lead pipeline" Donut Chart) */}
-          <div className="absolute -bottom-6 sm:-bottom-8 -left-2 sm:-left-6 md:-left-12 z-30 animate-float-delayed pointer-events-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-[0_20px_40px_rgba(0,0,0,0.1)] border border-slate-100 text-left w-44 sm:w-52">
+          <div className="absolute -bottom-4 sm:-bottom-7 md:-bottom-8 left-1 sm:-left-4 md:-left-8 lg:-left-12 z-30 animate-float-delayed pointer-events-auto origin-bottom-left scale-[0.7] xs:scale-[0.8] sm:scale-95 md:scale-100">
+            <div className="bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-[0_15px_35px_rgba(0,0,0,0.1)] border border-slate-100 text-left w-40 sm:w-48 md:w-52">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-heading font-semibold text-xs text-slate-800 leading-tight">
+                  <div className="font-heading font-semibold text-[11px] sm:text-xs text-slate-800 leading-tight">
                     Lead pipeline
                   </div>
-                  <div className="text-[9.5px] text-slate-400 font-navitem">
+                  <div className="text-[9px] sm:text-[9.5px] text-slate-400 font-navitem">
                     Funnel by stage
                   </div>
                 </div>
@@ -70,7 +70,7 @@ const Product = () => {
               </div>
 
               {/* Mini Donut Chart Simulation */}
-              <div className="relative w-20 h-20 mx-auto my-2 flex items-center justify-center">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto my-1.5 sm:my-2 flex items-center justify-center">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
                   {/* Background Circle */}
                   <path
@@ -93,13 +93,13 @@ const Product = () => {
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                  <span className="text-xs font-bold text-slate-800 leading-none">875</span>
-                  <span className="text-[7px] text-slate-400 font-medium leading-none mt-0.5">Total leads</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-800 leading-none">875</span>
+                  <span className="text-[6.5px] sm:text-[7px] text-slate-400 font-medium leading-none mt-0.5">Total leads</span>
                 </div>
               </div>
 
               {/* Mini Legend */}
-              <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[8.5px] font-navitem text-slate-500 pt-1 border-t border-slate-100">
+              <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-[8px] sm:text-[8.5px] font-navitem text-slate-500 pt-1 border-t border-slate-100">
                 <div className="flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                   <span className="truncate">Negotiation: 4</span>
@@ -121,18 +121,18 @@ const Product = () => {
           </div>
 
           {/* 3. Floating Card: Bottom Right ("Engagement performance" Chart) */}
-          <div className="absolute -bottom-6 sm:-bottom-8 -right-2 sm:-right-6 md:-right-10 z-30 animate-float pointer-events-auto">
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-[0_20px_40px_rgba(0,0,0,0.1)] border border-slate-100 text-left w-52 sm:w-64">
-              <div className="flex items-center justify-between mb-2">
+          <div className="absolute -bottom-4 sm:-bottom-7 md:-bottom-8 right-1 sm:-right-4 md:-right-6 lg:-right-10 z-30 animate-float pointer-events-auto origin-bottom-right scale-[0.7] xs:scale-[0.8] sm:scale-95 md:scale-100">
+            <div className="bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-[0_15px_35px_rgba(0,0,0,0.1)] border border-slate-100 text-left w-44 sm:w-56 md:w-64">
+              <div className="flex items-center justify-between mb-1.5 sm:mb-2">
                 <div>
-                  <div className="font-heading font-semibold text-xs text-slate-800 leading-tight">
+                  <div className="font-heading font-semibold text-[11px] sm:text-xs text-slate-800 leading-tight">
                     Engagement performance
                   </div>
-                  <div className="text-[9.5px] text-slate-400 font-navitem">
+                  <div className="text-[9px] sm:text-[9.5px] text-slate-400 font-navitem">
                     Visits vs. Leads - Last 7 days
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-[8px] font-medium">
+                <div className="flex items-center gap-1.5 sm:gap-2 text-[7.5px] sm:text-[8px] font-medium">
                   <span className="flex items-center gap-1 text-[#2563EB]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB]"></span> Visits
                   </span>
@@ -143,7 +143,7 @@ const Product = () => {
               </div>
 
               {/* Area Wave Chart Simulation */}
-              <div className="w-full h-16 sm:h-20">
+              <div className="w-full h-12 sm:h-16 md:h-20">
                 <svg className="w-full h-full overflow-visible" viewBox="0 0 200 60">
                   <defs>
                     <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">

@@ -39,6 +39,81 @@ const Heropage = () => {
 
       {/* Content: same side padding as the navbar */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1680px] flex-1 flex-col px-5 pb-6 pt-24 sm:px-8 sm:pb-8 sm:pt-28 lg:px-[3.6vw] lg:pb-14 lg:pt-32">
+        {/* Floating Profile Pins & Status Cards matching reference screenshot */}
+        {/* 1. Upper Location Pin & Card ("Current location") */}
+        <div className="absolute top-[18%] sm:top-[20%] lg:top-[22%] left-[44%] min-[500px]:left-[50%] lg:left-[51%] xl:left-[53%] z-20 flex items-start gap-2 sm:gap-2.5 animate-float pointer-events-auto origin-top-left scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 lg:scale-100">
+          {/* Avatar & Pin */}
+          <div className="flex flex-col items-center flex-shrink-0">
+            <img
+              src="/salesperson-avatar.png"
+              alt="Salesperson"
+              className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-sm"
+            />
+            <div className="w-3.5 h-4.5 sm:w-4 sm:h-5 -mt-1 text-[#FD860C] drop-shadow-xs">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* White Card */}
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl px-3 sm:px-3.5 py-2 sm:py-2.5 shadow-[0_8px_25px_rgba(0,0,0,0.08)] border border-slate-100 text-left min-w-[130px] sm:min-w-[145px]">
+            <div className="font-heading font-bold text-[12px] sm:text-[13px] text-slate-800 leading-tight">
+              Current location
+            </div>
+            <div className="text-[10px] sm:text-[11px] text-slate-400 font-navitem mt-0.5">
+              Last ping 12:47 PM
+            </div>
+          </div>
+        </div>
+
+        {/* 2. Lower Location Pin & Card ("Shift started here") */}
+        <div className="absolute bottom-[24%] sm:bottom-auto sm:top-[64%] lg:top-[66%] left-[40%] min-[500px]:left-[46%] lg:left-[47%] xl:left-[49%] z-20 flex items-start gap-2 sm:gap-2.5 animate-float-delayed pointer-events-auto origin-bottom-left scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 lg:scale-100">
+          {/* Avatar & Pin */}
+          <div className="flex flex-col items-center flex-shrink-0">
+            <img
+              src="/salesperson-avatar.png"
+              alt="Salesperson"
+              className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-sm"
+            />
+            <div className="w-3.5 h-4.5 sm:w-4 sm:h-5 -mt-1 text-[#FD860C] drop-shadow-xs">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+            </div>
+          </div>
+
+          {/* White Card */}
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl px-3 sm:px-3.5 py-2 sm:py-2.5 shadow-[0_8px_25px_rgba(0,0,0,0.08)] border border-slate-100 text-left min-w-[145px] sm:min-w-[160px]">
+            <div className="font-heading font-bold text-[12px] sm:text-[13px] text-slate-800 leading-tight">
+              Shift started here
+            </div>
+            <div className="text-[10px] sm:text-[11px] text-slate-400 font-navitem mt-0.5">
+              Checked in at 09:52 AM
+            </div>
+            <div className="text-[10px] sm:text-[11px] text-[#10B981] font-semibold flex items-center gap-1 mt-1">
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+              Face verified
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Top-Right Corner Profile Pin */}
+        <div className="absolute top-16 sm:top-20 right-4 sm:right-6 lg:right-10 z-20 flex flex-col items-center animate-float scale-75 sm:scale-90 lg:scale-100 pointer-events-none">
+          <img
+            src="/salesperson-avatar.png"
+            alt="Salesperson"
+            className="w-8 h-8 sm:w-9 sm:h-9 object-contain drop-shadow-sm"
+          />
+          <div className="w-3.5 h-4.5 sm:w-4 sm:h-5 -mt-1 text-[#FD860C] drop-shadow-xs">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+            </svg>
+          </div>
+        </div>
+
         {/* Left: heading, text, CTA (vertically centred in the free space) */}
         <div className="flex flex-1 items-center py-8 lg:py-6">
           <div className="max-w-[640px] text-left">
@@ -107,7 +182,7 @@ const Heropage = () => {
                 />
               </div>
               <div className="min-w-0 text-left">
-                <h3 className="font-heading text-[15px] font-semibold leading-tight tracking-tight text-slate-900 lg:text-">
+                <h3 className="font-heading text-[15px] font-semibold leading-tight tracking-tight text-slate-900 ">
                   {card.title}
                 </h3>
                 <p className="font-navitem mt-1 text-xs leading-snug text-slate-500 lg:text-[12.5px]">
