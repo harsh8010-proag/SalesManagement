@@ -4,21 +4,36 @@ const GrowYourBusiness = () => {
     return (
         <section
             id="grow-business"
-            className="relative w-full bg-white overflow-hidden pt-6 sm:pt-8 md:pt-10 pb-0"
+            className="relative w-full bg-white overflow-hidden"
+            style={{ minHeight: '420px' }}
         >
-            {/* ── Outlined Header & Centered CTA Button ── */}
-            <div className="relative z-20 w-full px-2 sm:px-4 text-center">
-                {/* Outlined "GROW YOUR BUSINESS" image spanning 96% width edge-to-edge */}
-                <div className="flex justify-center items-center w-full">
+            {/* ── Full-section Cityscape Background (absolute, fills whole section) ── */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
+                <img
+                    src="/city-map.jpg"
+                    alt="Corporate GPS Cityscape Map"
+                    className="w-full h-full object-cover object-top block"
+                />
+                {/* Top white fade — blends top of cityscape into white so text reads clearly */}
+                <div className="absolute top-0 left-0 right-0 h-[55%] bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none" />
+                {/* Bottom white fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-white via-white/70 to-transparent pointer-events-none" />
+            </div>
+
+            {/* ── Content: text + button floats on top of the cityscape ── */}
+            <div className="relative z-10 w-full flex flex-col items-center pt-8 sm:pt-10 md:pt-12 pb-[220px] sm:pb-[300px] md:pb-[360px] lg:pb-[420px]">
+
+                {/* Outlined "GROW YOUR BUSINESS" image spanning full width */}
+                <div className="flex justify-center items-center w-full px-2 sm:px-4">
                     <img
                         src="/GROW YOUR BUSINESS.png"
                         alt="GROW YOUR BUSINESS"
-                        className="w-[96%] max-w-[1440px] h-auto object-contain select-none pointer-events-none drop-shadow-xs"
+                        className="w-[96%] max-w-[1440px] h-auto object-contain select-none pointer-events-none"
                     />
                 </div>
 
-                {/* Book Demo Button + Circular Chevron Button */}
-                <div className="flex items-center justify-center gap-3 mt-4 sm:mt-5 md:mt-6">
+                {/* Book Demo Button + Circular Chevron */}
+                <div className="flex items-center justify-center gap-3 mt-5 sm:mt-6 md:mt-7">
                     <a
                         href="#contact"
                         style={{
@@ -48,17 +63,6 @@ const GrowYourBusiness = () => {
                         </svg>
                     </a>
                 </div>
-            </div>
-
-            {/* ── Cityscape Map: 100% Full Width Edge-to-Edge ── */}
-            <div className="relative -mt-8 sm:-mt-12 md:-mt-16 lg:-mt-22 xl:-mt-26 w-full z-10 pointer-events-none select-none">
-                <img
-                    src="/Corporate GPS Cityscape Map Template 1.png"
-                    alt="Corporate GPS Cityscape Map"
-                    className="w-full h-auto object-cover select-none block"
-                />
-                {/* Smooth bottom fade into white */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-32 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none" />
             </div>
         </section>
     );

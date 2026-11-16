@@ -40,8 +40,8 @@ const Heropage = () => {
       {/* Content: same side padding as the navbar */}
       <div className="relative z-10 mx-auto flex w-full max-w-[1680px] flex-1 flex-col px-5 pb-6 pt-24 sm:px-8 sm:pb-8 sm:pt-28 lg:px-[3.6vw] lg:pb-14 lg:pt-32">
         {/* Floating Profile Pins & Status Cards matching reference screenshot */}
-        {/* 1. Upper Location Pin & Card ("Current location") */}
-        <div className="absolute top-[18%] sm:top-[20%] lg:top-[22%] left-[44%] min-[500px]:left-[50%] lg:left-[51%] xl:left-[53%] z-20 flex items-start gap-2 sm:gap-2.5 animate-float pointer-events-auto origin-top-left scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 lg:scale-100">
+        {/* 1. Upper Location Pin & Card ("Current location") — hidden on mobile */}
+        <div className="hidden lg:flex absolute top-[22%] left-[51%] xl:left-[53%] z-20 items-start gap-2.5 animate-float pointer-events-auto origin-top-left">
           {/* Avatar & Pin */}
           <div className="flex flex-col items-center flex-shrink-0">
             <img
@@ -67,8 +67,8 @@ const Heropage = () => {
           </div>
         </div>
 
-        {/* 2. Lower Location Pin & Card ("Shift started here") */}
-        <div className="absolute bottom-[24%] sm:bottom-auto sm:top-[64%] lg:top-[66%] left-[40%] min-[500px]:left-[46%] lg:left-[47%] xl:left-[49%] z-20 flex items-start gap-2 sm:gap-2.5 animate-float-delayed pointer-events-auto origin-bottom-left scale-[0.72] min-[400px]:scale-[0.8] sm:scale-90 lg:scale-100">
+        {/* 2. Lower Location Pin & Card ("Shift started here") — hidden on mobile */}
+        <div className="hidden lg:flex absolute top-[66%] left-[47%] xl:left-[49%] z-20 items-start gap-2.5 animate-float-delayed pointer-events-auto origin-bottom-left">
           {/* Avatar & Pin */}
           <div className="flex flex-col items-center flex-shrink-0">
             <img
@@ -100,8 +100,8 @@ const Heropage = () => {
           </div>
         </div>
 
-        {/* 3. Top-Right Corner Profile Pin */}
-        <div className="absolute top-16 sm:top-20 right-4 sm:right-6 lg:right-10 z-20 flex flex-col items-center animate-float scale-75 sm:scale-90 lg:scale-100 pointer-events-none">
+        {/* 3. Top-Right Corner Profile Pin — hidden on mobile */}
+        <div className="hidden lg:flex absolute top-20 right-10 z-20 flex-col items-center animate-float pointer-events-none">
           <img
             src="/salesperson-avatar.svg"
             alt="Salesperson"
@@ -193,7 +193,7 @@ const Heropage = () => {
           ))}
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
