@@ -19,11 +19,11 @@ const Pricing = () => {
     <section
       id="pricing"
       style={{ fontFamily: "'Mona Sans', sans-serif" }}
-      className="relative w-full bg-white px-4 py-12 sm:px-6 sm:py-24 lg:px-8"
+      className="relative w-full bg-white px-4 py-12 sm:px-6 sm:py-24 lg:px-10 xl:px-16"
     >
       {/* Outer card with soft blue glow */}
       <div
-        className="mx-auto max-w-5xl overflow-hidden rounded-[28px] bg-white p-1.5 sm:rounded-[36px]"
+        className="mx-auto max-w-6xl xl:max-w-7xl overflow-hidden rounded-[28px] bg-white p-1.5 sm:rounded-[36px]"
         style={{
           boxShadow:
             '0 0 0 1px rgba(35,104,219,0.07), 0 10px 44px rgba(35,104,219,0.14)',

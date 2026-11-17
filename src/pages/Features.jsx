@@ -134,7 +134,7 @@ const Features = () => {
         #features .font-inter { font-family: 'Inter', sans-serif; }
       `}</style>
 
-      <div className="mx-auto flex max-w-7xl flex-col items-center px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* ───────── Section heading ───────── */}
         <div className="mx-auto mb-12 text-center sm:mb-16">
           <h2 className="font-heading text-[30px] font-semibold leading-[1.15] tracking-tight text-slate-900 sm:text-[38px] md:text-[48px] lg:text-[52px]">
@@ -288,12 +288,12 @@ const Features = () => {
         </div>
 
         {/* ───────── From field activity to management insight ───────── */}
-        <div className="mt-16 w-full max-w-5xl pt-6 sm:mt-24">
+        <div className="mt-16 w-full pt-6 sm:mt-24">
           <div className="font-inter mb-10 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 sm:mb-14 sm:text-xs">
             From field activity to management insight
           </div>
 
-          <div className="relative grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
+          <div className="relative grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-16 lg:gap-24">
             {/* Line running behind the number badges */}
             <div className="absolute left-0 right-0 top-[21px] z-0 hidden h-[1.5px] bg-slate-200 md:block" />
 

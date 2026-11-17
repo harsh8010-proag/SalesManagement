@@ -220,9 +220,9 @@ const Product = () => {
         </div>
       </div>
 
-      {/* FIELDOPS watermark: pure SVG (Mona Sans outlines + map pin), no image file */}
-      <div className="relative z-10 w-full mt-10 sm:mt-16 md:mt-20 px-4 sm:px-8 max-w-6xl mx-auto flex items-center justify-center">
-        <FieldOpsWatermark className="w-full max-w-4xl lg:max-w-5xl" />
+      {/* FIELDOPS watermark: pure SVG, full width edge-to-edge like reference */}
+      <div className="relative z-10 w-full mt-10 sm:mt-16 md:mt-20 px-2 sm:px-4 flex items-center justify-center overflow-hidden">
+        <FieldOpsWatermark className="w-full max-w-[1600px]" />
       </div>
     </section>
   );
