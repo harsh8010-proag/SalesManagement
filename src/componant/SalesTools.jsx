@@ -76,17 +76,14 @@ const SalesTools = () => {
       {/* Heading + subheading */}
       <div className="mx-auto px-4 text-center sm:px-6">
         <h2
-          className="font-bold leading-[1.22] tracking-tight text-black"
-          style={{ fontSize: 'clamp(28px, 3.75vw, 54px)' }}
+          className="font-heading font-bold leading-[1.18] tracking-tight text-slate-900"
+          style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}
         >
           The Tools Behind <span style={{ color: '#FD860C' }}>Every Successful</span>
           <br className="hidden sm:block" /> Sales Team.
         </h2>
 
-        <p
-          className="mx-auto mt-3 max-w-[460px] font-normal leading-[1.25] text-slate-900 sm:max-w-none"
-          style={{ fontSize: 'clamp(12px, 1.15vw, 14px)' }}
-        >
+        <p className="font-inter mx-auto mt-4 max-w-[480px] text-sm leading-relaxed text-slate-500 sm:mt-5 sm:text-[15px]">
           From field attendance to sales performance, FieldOps brings your entire sales
           <br className="hidden sm:inline" /> operation together with one simple, powerful platform.
         </p>
