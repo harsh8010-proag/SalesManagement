@@ -19,7 +19,7 @@ const Pricing = () => {
     <section
       id="pricing"
       style={{ fontFamily: "'Mona Sans', sans-serif" }}
-      className="relative w-full bg-white px-4 py-12 sm:px-6 sm:py-24 lg:px-10 xl:px-16"
+      className="relative w-full bg-white px-4 py-12 sm:px-6 sm:py-24 lg:px-4 xl:px-4"
     >
       {/* Outer card with soft blue glow */}
       <div

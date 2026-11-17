@@ -23,7 +23,7 @@ const DownloadApp = () => {
     <section
       id="download-app"
       style={{ fontFamily: "'Mona Sans', sans-serif" }}
-      className="w-full bg-white py-8 sm:py-12 px-4 sm:px-6 lg:px-10 xl:px-16"
+      className="w-full bg-white py-8 sm:py-12 px-4 sm:px-6 lg:px-5"
     >
       <style>{`
         /* Animated orange card: the gradient is 2x wider than the card and slides back and forth.
@@ -49,13 +49,13 @@ const DownloadApp = () => {
       {/* Light grey-blue rounded card (same as screenshot) */}
       <div
         style={{ backgroundColor: '#F5F7FB' }}
-        className="w-full rounded-3xl px-6 sm:px-10 lg:px-14 xl:px-20 py-10 lg:py-14"
+        className="max-w-[1240px] mx-auto rounded-3xl px-6 sm:px-10 lg:px-12 py-10 lg:py-14"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px_1fr] xl:grid-cols-[1fr_420px_1fr] gap-10 lg:gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_340px_1fr] gap-10 lg:gap-8 items-stretch">
           {/* ───────── LEFT: heading, CTA, progress scale ───────── */}
           <div className="relative z-20 flex flex-col justify-between text-left">
             <div>
-              <h2 className="font-semibold text-slate-900 tracking-tight leading-[1.2] text-[32px] sm:text-[40px] lg:text-[38px] xl:text-[44px]">
+              <h2 className="font-semibold text-slate-900 tracking-tight leading-[1.2] text-[32px] sm:text-[40px] lg:text-[38px] xl:text-[44px] lg:whitespace-nowrap">
                 A Smarter Way to
                 <br />
                 Manage Your <span style={{ color: '#FD860C' }}>Field</span>

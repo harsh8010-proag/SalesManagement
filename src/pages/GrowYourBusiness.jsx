@@ -10,7 +10,7 @@ const GrowYourBusiness = () => {
             {/* ── Full-section Cityscape Background (absolute, fills whole section) ── */}
             <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
                 <img
-                    src="/city-map.jpg"
+                    src="/map.png"
                     alt="Corporate GPS Cityscape Map"
                     className="w-full h-full object-cover object-top block"
                 />
