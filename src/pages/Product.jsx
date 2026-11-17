@@ -194,7 +194,7 @@ const Product = () => {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 >
                   <source src="/productFlow.mp4" type="video/mp4" />
                 </video>
