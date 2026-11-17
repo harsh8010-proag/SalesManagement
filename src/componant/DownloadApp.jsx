@@ -23,7 +23,7 @@ const DownloadApp = () => {
     <section
       id="download-app"
       style={{ fontFamily: "'Mona Sans', sans-serif" }}
-      className="w-full bg-white py-8 sm:py-12 px-4 sm:px-6 lg:px-5"
+      className="w-full bg-white py-8 sm:py-12 px-4 sm:px-6 lg:px-4"
     >
       <style>{`
         /* Animated orange card: the gradient is 2x wider than the card and slides back and forth.
