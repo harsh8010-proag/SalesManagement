@@ -82,10 +82,9 @@ const SalesTools = () => {
           The Tools Behind <span style={{ color: '#FD860C' }}>Every Successful</span>
           <br className="hidden sm:block" /> Sales Team.
         </h2>
-
-        <p className="font-inter mx-auto mt-4 max-w-[480px] text-sm leading-relaxed text-slate-500 sm:mt-5 sm:text-[15px]">
+        <p className="font-inter mx-auto mt-4 max-w-[480px] text-sm leading-relaxed text-slate-500 sm:mt-5 sm:text-[15px] lg:max-w-none lg:whitespace-nowrap">
           From field attendance to sales performance, FieldOps brings your entire sales
-          <br className="hidden sm:inline" /> operation together with one simple, powerful platform.
+          <br className="hidden lg:inline" /> operation together with one simple, powerful platform.
         </p>
       </div>
 
