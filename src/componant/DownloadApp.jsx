@@ -23,7 +23,7 @@ const DownloadApp = () => {
     <section
       id="download-app"
       style={{ fontFamily: "'Mona Sans', sans-serif" }}
-      className="w-full bg-white py-8 sm:py-12 px-4 sm:px-6 lg:px-4"
+      className="w-full bg-white py-8 sm:py-12 lg:px-4"
     >
       <style>{`
         /* Animated orange card: the gradient is 2x wider than the card and slides back and forth.
@@ -49,9 +49,9 @@ const DownloadApp = () => {
       {/* Light grey-blue rounded card (same as screenshot) */}
       <div
         style={{ backgroundColor: '#F5F7FB' }}
-        className="max-w-[1240px] mx-auto rounded-3xl px-6 sm:px-10 lg:px-12 py-10 lg:py-14"
+        className="w-full mx-auto rounded-3xl px-4 py-10 lg:py-14"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_340px_1fr] gap-10 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_340px_1fr] xl:grid-cols-[minmax(0,1fr)_340px_minmax(0,1fr)] gap-10 lg:gap-8 items-stretch">
           {/* ───────── LEFT: heading, CTA, progress scale ───────── */}
           <div className="relative z-20 flex flex-col justify-between text-left">
             <div>

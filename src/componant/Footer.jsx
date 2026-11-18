@@ -18,7 +18,7 @@ const Footer = () => {
         { label: 'Terms & Conditions', href: '#terms' },
         { label: 'Product', href: '#product' },
         { label: 'Features', href: '#features' },
-        { label: 'Who we are', href: '#about' },
+        { label: 'Who we are', href: 'https://techsuryaitsolution.com/', external: true },
         { label: 'Contacts', href: '#contact' },
     ];
 
@@ -80,7 +80,11 @@ const Footer = () => {
                             <ul className="text-[13.5px] leading-5 font-medium text-white">
                                 {infoLinks.map((l) => (
                                     <li key={l.label}>
-                                        <a href={l.href} className="hover:text-white/70 transition-colors">
+                                        <a
+                                            href={l.href}
+                                            className="hover:text-white/70 transition-colors"
+                                            {...(l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                                        >
                                             {l.label}
                                         </a>
                                     </li>
@@ -94,7 +98,7 @@ const Footer = () => {
                                 Our Branches
                             </h4>
                             <ul className="text-[13.5px] leading-5 font-medium text-white">
-                                <li>Chhatrapati Sambhajinagar</li>
+                                <li>Chh. Sambhajinagar</li>
                                 <li>Nashik</li>
                                 <li>Pune</li>
                             </ul>
@@ -127,7 +131,9 @@ const Footer = () => {
                         {/* Social icons */}
                         <div className="flex items-center gap-2">
                             <a
-                                href="#instagram"
+                                href="https://www.instagram.com/techsuryaitsolutions/reels/?hl=en"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Instagram"
                                 className="w-8 h-8 rounded-full bg-[#FF8A0D] hover:bg-[#F07C00] flex items-center justify-center hover:scale-105 transition-transform"
                             >
@@ -146,10 +152,15 @@ const Footer = () => {
                             </a>
                         </div>
 
-                        {/* Address */}
-                        <p className="text-[11px] sm:text-[11.5px] font-semibold text-white leading-snug max-w-[260px]">
+                        {/* Address — clicks opens Google Maps */}
+                        <a
+                            href="https://www.google.com/maps/search/Office+no+217+,+222+Golden+City+Center+near+prozon+mall+Chhatrapati+Sambhajinagar./@19.874127,75.3699616,162m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MTExNS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[11px] sm:text-[11.5px] font-semibold text-white leading-snug max-w-[260px] hover:text-white/75 transition-colors underline-offset-2 hover:underline"
+                        >
                             Office no 217 , 222 Golden City Center near prozon mall Chhatrapati Sambhajinagar.
-                        </p>
+                        </a>
 
                         {/* Slogan */}
                         <div className="font-heading text-[22px] sm:text-[24px] xl:text-[26px] font-bold text-white tracking-tight whitespace-nowrap lg:text-right">

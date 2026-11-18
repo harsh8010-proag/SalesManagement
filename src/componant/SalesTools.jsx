@@ -25,7 +25,7 @@ const row2 = [
 
 /* One pill: fixed 190px wide, 53px tall, content centred (as in the screenshot) */
 const Pill = ({ text }) => (
-  <div className="inline-flex h-12 w-[168px] flex-shrink-0 cursor-default select-none items-center justify-center gap-2.5 whitespace-nowrap rounded-[14px] border border-[#E6E8EC] bg-white text-sm font-medium text-slate-900 shadow-[0_1px_4px_rgba(15,23,42,0.04)] sm:h-[53px] sm:w-[190px] sm:text-[15px]">
+  <div className="inline-flex h-12 min-w-[168px] flex-shrink-0 cursor-default select-none items-center justify-center gap-2.5 whitespace-nowrap rounded-[14px] border border-[#E6E8EC] bg-white px-5 text-sm font-medium text-slate-900 shadow-[0_1px_4px_rgba(15,23,42,0.04)] sm:h-[53px] sm:min-w-[190px] sm:px-6 sm:text-[15px]">
     <span className="flex h-[19px] w-[19px] flex-shrink-0 items-center justify-center rounded-full bg-[#72E08E]">
       <svg className="h-[11px] w-[11px] text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3.5} d="M5 13l4 4L19 7" />
@@ -67,7 +67,7 @@ const SalesTools = () => {
         .st-track { animation-timing-function: linear; animation-iteration-count: infinite; }
         .st-left  { animation-name: st-marquee-left; }
         .st-right { animation-name: st-marquee-right; }
-        .st-track:hover { animation-play-state: paused; }
+        .st-track:hover { animation-play-state: paused;}
         @keyframes st-marquee-left  { from { transform: translateX(0); }    to { transform: translateX(-50%); } }
         @keyframes st-marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
         @media (prefers-reduced-motion: reduce) { .st-track { animation: none; } }

@@ -72,15 +72,18 @@ const TryFieldOps = () => {
                     </div>
 
                     {/* ══ DESKTOP (lg+): phone + flat panel + yellow strip ══ */}
-                    <div className="hidden lg:block absolute inset-y-0 right-0 w-[60%] z-10 [--pw:200px] xl:[--pw:250px]">
+                    <div className="hidden lg:block absolute inset-y-0 right-0 w-[60%] z-10 [--pw:200px] [--strip:70px] xl:[--pw:250px] xl:[--strip:140px]">
 
                         {/* Pale yellow edge strip */}
-                        <div className="absolute top-0 bottom-0 right-0 w-10 bg-[#FFF1BF]" />
+                        <div
+                            className="absolute top-0 bottom-0 right-0 bg-[#FFF1BF]"
+                            style={{ width: 'var(--strip)' }}
+                        />
 
                         {/* Flat panel: bottom of the app (card → nav bar) */}
                         <div
                             className="absolute top-0 bottom-0 bg-white overflow-hidden shadow-[-8px_0_24px_rgba(0,0,0,0.08)]"
-                            style={{ right: '40px', width: 'var(--pw)' }}
+                            style={{ right: 'var(--strip)', width: 'var(--pw)' }}
                         >
                             <img
                                 src="/app-mobile-panel.jpg"
@@ -93,7 +96,7 @@ const TryFieldOps = () => {
                         {/* Phone: top of the app, cut off by the banner bottom */}
                         <div
                             className="absolute bottom-0 h-[54%] rounded-t-[28px] border-[3px] border-b-0 border-white/50 bg-white overflow-hidden shadow-[0_-6px_30px_rgba(0,0,0,0.14)] z-20"
-                            style={{ right: 'calc(40px + var(--pw) + 16px)', width: 'var(--pw)' }}
+                            style={{ right: 'calc(var(--strip) + var(--pw) + 16px)', width: 'var(--pw)' }}
                         >
                             <img
                                 src="/app-mobile-panel.jpg"
