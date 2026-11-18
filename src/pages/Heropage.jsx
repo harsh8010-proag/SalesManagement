@@ -187,7 +187,7 @@ const Heropage = () => {
       </div>
 
       {/* ───────── 3. Feature cards (2 columns on small screens) ───────── */}
-      <div className={`relative z-10 pb-6 pt-4 sm:pb-8 lg:pb-14 lg:pt-0 ${sidePad}`}>
+      <div className={`relative z-10 pb-6 pt-4 sm:pb-8 lg:pb-14 lg:pt-26 ${sidePad}`}>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:gap-5 xl:gap-[3.6vw]">
           {featureCards.map((card) => (
             <div

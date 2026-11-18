@@ -138,13 +138,11 @@ const Features = () => {
         {/* ───────── Section heading ───────── */}
         <div className="mx-auto mb-12 text-center sm:mb-16">
           <h2
-            className="font-heading font-bold leading-[1.18] tracking-tight text-slate-900"
-            style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}
+            className="font-heading font-bold leading-[1.18] tracking-tight text-slate-900 text-[clamp(19px,5.6vw,28px)] sm:text-[clamp(28px,4vw,52px)]"
           >
             <span className="block">Your people are everywhere.</span>
             <span className="block text-[#FE6608]">Your management shouldn&rsquo;t be.</span>
           </h2>
-
           <p className="font-inter mx-auto mt-4 max-w-[480px] text-sm leading-relaxed text-slate-500 sm:mt-5 sm:text-[15px]">
             FieldOps connects employee locations, field activities and operational information so
             managers can understand what is happening across their workforce.
