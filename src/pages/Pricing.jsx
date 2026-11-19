@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import axios from 'axios';
 import RegisterModal from '../componant/RegisterModal';
-import { useState } from 'react';
 
-const includes = [
-  '2 Salesperson Accounts',
-  'Real-Time GPS Location Tracking',
-  'Attendance & Check-in Management',
-  'Sales & Revenue Reports',
-  'Expense, Leave & Payroll Management',
-];
+const api = axios.create({
+  baseURL: 'https://salestrackapi.techsuryaitsolution.com/api',
+  timeout: 15000,
+});
+
+// Simple in-memory cache so re-mounting the section doesn't refetch.
+let plansCache = null;
+
+const money = (price) => `₹ ${new Intl.NumberFormat('en-IN').format(price)}`;
+const cycleUnit = (value) => ({ monthly: 'month', yearly: 'year', annual: 'year', quarterly: 'quarter' }[value] || value);
+const cycleName = (value) =>
+  ({ monthly: 'Monthly', yearly: 'Annual', annual: 'Annual', quarterly: 'Quarterly' }[value] || 'Subscription');
+
+// The API has no "popular" flag in its response, so use one if it ever appears,
+// otherwise the first plan by sortOrder (same plan the registration popup marks "Most Popular").
+const pickPopular = (list) => list.find((p) => p.isPopular || p.popular || p.mostPopular) || list[0] || null;
 
 const Chevron = ({ className = 'h-3.5 w-3.5' }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -18,6 +27,37 @@ const Chevron = ({ className = 'h-3.5 w-3.5' }) => (
 
 const Pricing = () => {
   const [showForm, setShowForm] = useState(false);
+  const [plans, setPlans] = useState(plansCache || []);
+  const [status, setStatus] = useState(plansCache ? 'ready' : 'loading'); // loading | ready | error
+  const [reloadKey, setReloadKey] = useState(0);
+
+  useEffect(() => {
+    if (plansCache) return undefined;
+    const controller = new AbortController();
+    setStatus('loading');
+    api
+      .get('/register/plans', { signal: controller.signal })
+      .then(({ data }) => {
+        const list = [...(data.plans || [])].sort((a, b) => a.sortOrder - b.sortOrder);
+        plansCache = list;
+        setPlans(list);
+        setStatus(list.length ? 'ready' : 'error');
+      })
+      .catch((e) => {
+        if (!axios.isCancel(e)) setStatus('error');
+      });
+    return () => controller.abort();
+  }, [reloadKey]);
+
+  const plan = useMemo(() => pickPopular(plans), [plans]);
+
+  const includes = useMemo(() => {
+    if (!plan) return [];
+    return [`Up to ${plan.seatLimit} Salesperson Accounts`, ...(plan.features || [])];
+  }, [plan]);
+
+  const loading = status === 'loading';
+  const failed = status === 'error';
 
   return (
     <section
@@ -29,8 +69,7 @@ const Pricing = () => {
       <div
         className="w-full overflow-hidden rounded-[28px] bg-white p-1.5 sm:rounded-[36px]"
         style={{
-          boxShadow:
-            '0 0 0 1px rgba(35,104,219,0.07), 0 10px 44px rgba(35,104,219,0.14)',
+          boxShadow: '0 0 0 1px rgba(35,104,219,0.07), 0 10px 44px rgba(35,104,219,0.14)',
         }}
       >
         <div className="grid grid-cols-1 gap-1.5 lg:grid-cols-12">
@@ -57,25 +96,58 @@ const Pricing = () => {
               />
             </div>
 
-            {/* Annual Plan badge: top right (floats over the card on phones, in the flow from tablet up) */}
+            {/* Billing badge: top right (floats over the card on phones, in the flow from tablet up) */}
             <div className="absolute right-6 top-6 z-10 sm:relative sm:right-auto sm:top-auto sm:flex sm:justify-end">
-              <span className="inline-block rounded-[11px] bg-[#E6EFFD] px-4 py-1.5 text-[13px] font-medium text-[#2368DB] sm:text-sm">
-                Annual Plan
-              </span>
+              {loading ? (
+                <span className="inline-block h-[30px] w-[100px] animate-pulse rounded-[11px] bg-[#E6EFFD]" />
+              ) : (
+                <span className="inline-block rounded-[11px] bg-[#E6EFFD] px-4 py-1.5 text-[13px] font-medium text-[#2368DB] sm:text-sm">
+                  {plan ? `${cycleName(plan.billingCycle)} Plan` : 'Subscription'}
+                </span>
+              )}
             </div>
 
             {/* Price + CTA */}
             <div className="relative z-10 mt-4 flex flex-col items-start gap-5 sm:mt-0 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <div className="flex flex-wrap items-baseline gap-x-2.5">
-                  <span className="text-[34px] font-bold leading-none tracking-tight text-slate-900 sm:text-[41px]">
-                    ₹ 9,999
-                  </span>
-                  <span className="text-base font-normal text-slate-400 sm:text-lg">/ year</span>
-                </div>
-                <div className="mt-3 text-sm font-semibold text-[#2368DB] sm:mt-4 sm:text-[15px]">
-                  For 2 Salespersons
-                </div>
+                {loading && (
+                  <div className="space-y-3" aria-busy="true">
+                    <div className="h-[41px] w-[190px] animate-pulse rounded-lg bg-slate-200/70" />
+                    <div className="h-[18px] w-[150px] animate-pulse rounded-md bg-slate-200/70" />
+                  </div>
+                )}
+
+                {failed && (
+                  <div>
+                    <p className="text-sm text-slate-500">Pricing could not be loaded right now.</p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        plansCache = null;
+                        setReloadKey((k) => k + 1);
+                      }}
+                      className="mt-2 text-sm font-semibold text-[#2368DB] underline underline-offset-2"
+                    >
+                      Try again
+                    </button>
+                  </div>
+                )}
+
+                {status === 'ready' && plan && (
+                  <>
+                    <div className="flex flex-wrap items-baseline gap-x-2.5">
+                      <span className="text-[34px] font-bold leading-none tracking-tight text-slate-900 sm:text-[41px]">
+                        {money(plan.price)}
+                      </span>
+                      <span className="text-base font-normal text-slate-400 sm:text-lg">
+                        / {cycleUnit(plan.billingCycle)}
+                      </span>
+                    </div>
+                    <div className="mt-3 text-sm font-semibold text-[#2368DB] sm:mt-4 sm:text-[15px]">
+                      {plan.name} Plan · Up to {plan.seatLimit} Salespersons
+                    </div>
+                  </>
+                )}
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -101,26 +173,34 @@ const Pricing = () => {
           <div
             className="flex flex-col justify-between rounded-[24px] p-5 text-white sm:rounded-[30px] sm:p-6 lg:col-span-5"
             style={{
-              background:
-                'linear-gradient(195deg, #2B6BD2 0%, #2563C8 42%, #153F8A 74%, #0C2556 100%)',
+              background: 'linear-gradient(195deg, #2B6BD2 0%, #2563C8 42%, #153F8A 74%, #0C2556 100%)',
             }}
           >
             <div>
               <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">What’s Included ?</h3>
 
               <ul className="mt-5 space-y-3 sm:mt-7 sm:space-y-[14px]">
-                {includes.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <span className="mt-[1px] flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center rounded-full bg-[#F6EBB9]">
-                      <svg className="h-[10px] w-[10px] text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3.5} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-[13px] font-normal leading-snug text-white/80 sm:text-[13.5px]">
-                      {feature}
-                    </span>
-                  </li>
-                ))}
+                {loading &&
+                  [1, 2, 3, 4].map((n) => (
+                    <li key={n} className="flex items-center gap-3">
+                      <span className="h-[18px] w-[18px] flex-shrink-0 animate-pulse rounded-full bg-white/25" />
+                      <span className="h-3 w-[70%] animate-pulse rounded bg-white/20" />
+                    </li>
+                  ))}
+
+                {failed && <li className="text-[13px] text-white/80">Plan details are unavailable right now.</li>}
+
+                {status === 'ready' &&
+                  includes.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <span className="mt-[1px] flex h-[18px] w-[18px] flex-shrink-0 items-center justify-center rounded-full bg-[#F6EBB9]">
+                        <svg className="h-[10px] w-[10px] text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span className="text-[13px] font-normal leading-snug text-white/80 sm:text-[13.5px]">{feature}</span>
+                    </li>
+                  ))}
               </ul>
             </div>
 
@@ -134,9 +214,7 @@ const Pricing = () => {
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <div className="text-[11px] font-medium uppercase tracking-wide text-slate-400 sm:text-xs">
-                    Need help ?
-                  </div>
+                  <div className="text-[11px] font-medium uppercase tracking-wide text-slate-400 sm:text-xs">Need help ?</div>
                   <div className="mt-0.5 text-[13px] font-semibold leading-snug text-slate-900 sm:text-[13.5px]">
                     Not sure if this fits your needs ?
                   </div>
@@ -180,7 +258,8 @@ const Pricing = () => {
           </div>
         </div>
       </div>
-      {showForm && <RegisterModal onClose={() => setShowForm(false)} />}
+
+      {showForm && <RegisterModal onClose={() => setShowForm(false)} defaultPlanCode={plan?.code} />}
     </section>
   );
 };
