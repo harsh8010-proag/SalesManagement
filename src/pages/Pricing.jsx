@@ -1,4 +1,6 @@
 import React from 'react';
+import RegisterModal from '../componant/RegisterModal';
+import { useState } from 'react';
 
 const includes = [
   '2 Salesperson Accounts',
@@ -15,6 +17,8 @@ const Chevron = ({ className = 'h-3.5 w-3.5' }) => (
 );
 
 const Pricing = () => {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <section
       id="pricing"
@@ -75,12 +79,13 @@ const Pricing = () => {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <a
-                  href="#get-started"
+                <button
+                  type="button"
+                  onClick={() => setShowForm(true)}
                   className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#2368DB] px-6 py-[10px] text-[15px] font-medium text-white shadow-[0_6px_18px_rgba(35,104,219,0.28)] transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]"
                 >
                   Get Started
-                </a>
+                </button>
                 <a
                   href="#get-started"
                   aria-label="Get Started details"
@@ -175,6 +180,7 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+      {showForm && <RegisterModal onClose={() => setShowForm(false)} />}
     </section>
   );
 };
